@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .centered {
+            width: 400px;
+            height: 200px;
+            background-color: lightgray;
+            margin: auto;
+        }
+        
+        .switch input {
+            display: none;
+        }
+        
+        .slider {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: background-color 0.3s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        input:checked+.slider {
+            background-color: #bcb5ff;
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+        
+        .custom-select {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .custom-select option {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #999;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        input[type="radio"]:checked {
+            background-color: #bcb5ff;
+            border-color: #46494b;
+        }
+        
+        .custom-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #fcfcfc;
+            border: 3px solid #bcb5ff;
+            padding: 5px;
+            border-radius: 5px;
+            width: 90%;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .custom-select:after {
+            content: '\25BC';
+            position: absolute;
+            top: calc(50% - 5px);
+            right: 10px;
+            pointer-events: none;
+            color: #bcb5ff;
+        }
+    </style>
+</head>
+
+<body style="background-color:#c8c2ff ;">
+    <div class="centered">
+        <form>
+            <fieldset style="background-color: rgb(255, 255, 255);height: 700px; width: 400px;">
+                <div style="padding:20px; margin: 10px; height: 20px;">
+                    <label for="username" style="font-size: 15px;">
+                        username
+                    </label><br>
+                    <input style="border-radius: 4px;width: 300px;height: 30px; border-color: rgb(223, 222, 222);" type="text" id="username" name="username" placeholder="Enter your username">
+                    <br>
+                </div>
+                <div style="padding:20px;margin: 10px;height: 30px;">
+                    <label for="Password" style="font-size: 15px;">
+                        Password
+                    </label><br>
+                    <input style="border-radius: 4px; width: 300px;height: 30px;border-color: rgb(223, 222, 222);" type="text" id="Password" name="Password" placeholder="Enter Password"> <br>
+                    <span style="font-size: small;color: #46494b;">Your password is between 4 and 12 characters</span><br>
+
+                    <div style="padding:20px;margin: 10px;height: 20px;">
+                        <label for="textlebel" style="font-size: 15px;">
+                        Input Text Label
+                    </label><br>
+                        <input style="border-radius: 4px;width: 300px;height: 30px;border-color: rgb(223, 222, 222);" type="text" id="textlebel" name="textlebel" placeholder="Input text label"><br>
+                    </div>
+                    <div style="padding:20px;margin: 10px;height: 5px;">
+                        <input type="checkbox" style="background-color: #bcb5ff;">
+                        <label for="Remember"> Remember me</label><br>
+                    </div>
+                    <div style="padding:20px;margin: 10px;height: 20px;">
+                        <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label><br>
+                    </div>
+                    <div style="padding:20px;margin: 10px;height: 70px;">
+                        <input type="radio" id="option1" name="options" value="option1">
+                        <label for="option1">Radio selection 1</label><br>
+
+                        <input type="radio" id="option2" name="options" value="option2">
+                        <label for="option2">Radio selection2</label><br>
+
+                        <input type="radio" id="option3" name="options" value="option3">
+                        <label for="option3">Radio selection 3</label><br>
+                    </div>
+                    <div style="padding:20px;margin: 10px;height: 70px;">
+                        <label for="dd">Dropdown Title</label><br>
+                        <select id="dd" name="dd" style="background-color: #fcfcfc;   border: 3px solid #bcb5ff;" class="custom-select">
+                        <option value="d1">Dropdown option</option>
+                        <option value="d2">Dropdown option 1</option>
+                        <option value="d3">Dropdown option 2</option>
+                        <option value="d4">Dropdown option 3</option>
+                    </select><br>
+                    </div>
+                    <div style="padding:20px;margin: 10px;height: 70px; display: flex; justify-content: space-between; align-items: center;">
+                        <button style="background-color: #fcfcfc; border: 2px solid #bcb5ff;width: 60px;height: 30px; " class="button">Cancel</button>
+                        <button style="background-color: #bcb5ff;width: 60px;height: 30px;  " class="button ">Next</button>
+                    </div>
+
+            </fieldset>
+        </form>
+        </div>
+</body>
+
+</html>
