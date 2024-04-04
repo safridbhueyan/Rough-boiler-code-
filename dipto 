@@ -1,0 +1,77 @@
+
+
+
+import java.util.Scanner;
+
+public class RockPaperScissors {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to Rock Paper Scissors!");
+
+        while (true) {
+            System.out.println("Enter your choice (rock, paper, scissors): ");
+            String playerChoice = scanner.nextLine().toLowerCase();
+
+            if (!isValidChoice(playerChoice)) {
+                System.out.println("Invalid choice. Please choose again.");
+                continue;
+            }
+
+            String computerChoice = generateComputerChoice();
+            System.out.println("Computer's choice: " + computerChoice);
+
+            String result = determineWinner(playerChoice, computerChoice);
+            if (result.equals("player")) {
+                System.out.println("You win!");
+                if (!Beatle()) {
+                    System.out.println("There will be no battle.");
+                }
+            } else if (result.equals("computer")) {
+                System.out.println("Computer wins!");
+            } else {
+                System.out.println("It's a tie!");
+            }
+
+            System.out.println("Do you want to play again? (yes/no): ");
+            String playAgain = scanner.nextLine().toLowerCase();
+            if (!playAgain.equals("yes")) {
+                break;
+            }
+        }
+
+        scanner.close();
+        System.out.println("Thanks for playing!");
+    }
+
+    public static boolean Beatle() {
+        // your implementation of the Beatle function goes here
+        // return true if the player wins without a battle, otherwise false
+        return false; // just a placeholder, replace with your logic
+    }
+
+    public static boolean isValidChoice(String choice) {
+        return choice.equals("rock") || choice.equals("paper") || choice.equals("scissors");
+    }
+
+    public static String generateComputerChoice() {
+        String[] choices = {"rock", "paper", "scissors"};
+        int randomIndex = (int) (Math.random() * 3);
+        return choices[randomIndex];
+    }
+
+    public static String determineWinner(String playerChoice, String computerChoice) {
+        if (playerChoice.equals(computerChoice)) {
+            return "tie";
+        } else if ((playerChoice.equals("rock") && computerChoice.equals("scissors")) ||
+                   (playerChoice.equals("paper") && computerChoice.equals("rock")) ||
+                   (playerChoice.equals("scissors") && computerChoice.equals("paper"))) {
+            return "player";
+        } else {
+            return "computer";
+        }
+    }
+}
+```
+
+Replace the `Beatle()` method with your logic to determine if the player wins without a battle. The game will check if the player wins and then call the `Beatle()` function to determine if there should be no battle. If `Beatle()` returns `true`, it will print "There will be no battle." so implement this on your original code with the help of chatgpt 
